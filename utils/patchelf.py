@@ -11,6 +11,6 @@ def check_executable():
         ]))
 
 def add_needed(dependacy: Path, target: Path):
-    return subprocess.run(
-        ["patchelf", "--add-needed", str(dependacy), str((target))]
-    )
+    cmd = ["patchelf", "--add-needed", str(dependacy), str((target))]
+    print("$", " ".join(cmd))
+    return subprocess.run(cmd, check=True)

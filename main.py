@@ -1,6 +1,9 @@
-from utils.setup import init, clean
+# Import libs
+from pathlib import Path
+from utils import apk_tools, patchelf, setup
 import sys
 
-init()
+# Setup project
+setup.init()
 if (len(sys.argv) > 1):
-    if (sys.argv[1] == "clean"): clean()
+    if (sys.argv[1] == "clean"): setup.clean()

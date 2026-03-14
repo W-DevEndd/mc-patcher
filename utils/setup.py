@@ -12,7 +12,7 @@ def init():
     (files / "arm64-v8a").mkdir(parents=True, exist_ok=True)
     (out / "arm64-v8a").mkdir(parents=True, exist_ok=True)
     (out / "armebi-v7a").mkdir(parents=True, exist_ok=True)
-    
+
     shutil.copyfile(Path("resources") / "config.py", config)
 
     print("\n".join([

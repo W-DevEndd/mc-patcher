@@ -2,7 +2,7 @@ from pathlib import Path
 import os, shutil, sys
 
 files = Path("files")
-config = Path(".config.py")
+config = Path("mc_patcher_config.py")
 out = Path(".out")
 
 def init():

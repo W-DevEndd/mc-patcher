@@ -1,13 +1,14 @@
 
 class Config:
-    # Absolute path to mimecraft apk file
+    # Apks
     minecraft_apk = "./files/arm64-v8a/minecraft.apk"
     minecraft_apk_32 = "./files/armebi-v7a/minecraft.apk"
 
-    # (Optinal) Absolute path to Material bin loader lib.so file
-    mb_libso = ""
-    mb_libso_32 = ""
+    # Material bin loader
+    mbloader_patch = True
+    mb_libso = "./files/arm64-v8a/libmtbinloader2.so"
+    mb_libso_32 = "./files/armebi-v7a/libmtbinloader2.so"
 
-    make_for_32 = False
+    make_32 = False
 
     force_unlock_visual = True

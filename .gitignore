@@ -2,6 +2,6 @@ __pycache__
 
 files
 .out
-.config.py
+mc_patcher_config.py
 .keystore.jks
 .passwd

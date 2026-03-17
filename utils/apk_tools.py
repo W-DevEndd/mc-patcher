@@ -24,11 +24,16 @@ def extract(apk_p: Path, member: str, dest_dir: Path):
             with open(dest_dir / Path(member).name, "wb") as dst:
                 shutil.copyfileobj(src, dst)
 
-def add(apk_p: Path, file: Path, to_member: str):
+def push(apk_p: Path, file: Path, to_member: str):
     check(apk_p)
-    with zipfile.ZipFile(apk_p, "a") as apk:
-        apk.write(file, to_member)
 
+    shutil.move(apk_p, apk_p.with_suffix(apk_p.suffix + ".bak"))
+    with zipfile.ZipFile(apk_p.with_suffix(apk_p.suffix + ".bak"), "r") as zin:
+        with zipfile.ZipFile(apk_p, "w")as zout:
+            for item in zin.infolist():
+                if item.filename != to_member:
+                    zout.writestr(item, zin.read(item.filename))
+            zout.writestr(to_member, file.read_bytes())
 def _align(apk_p: Path):
     check(apk_p)
 
